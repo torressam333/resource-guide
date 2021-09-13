@@ -28,5 +28,10 @@ export default {
 </script>
 
 <style scoped>
-
+ul {
+  list-style: none;
+  margin: 0 auto;
+  max-width: 40rem;
+  padding: 0;
+}
 </style>
