@@ -1,23 +1,26 @@
 <template>
   <li>
-    <div>
+    <base-card>
       <header>
         <h3>
           {{ title }}
         </h3>
         <button>Delete</button>
       </header>
-    </div>
     <p>{{ description }}</p>
     <nav>
       <a :href="link" target="_blank">Go To Resource</a>
     </nav>
+    </base-card>
   </li>
 </template>
 
 <script>
+import BaseCard from "../UI/BaseCard";
+
 export default {
   name: ['resource-item'],
+  components: {BaseCard},
   props: {
     description: {
       type: String,
