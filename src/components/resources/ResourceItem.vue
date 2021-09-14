@@ -16,11 +16,8 @@
 </template>
 
 <script>
-import BaseCard from "../UI/BaseCard";
-
 export default {
   name: ['resource-item'],
-  components: {BaseCard},
   props: {
     description: {
       type: String,
