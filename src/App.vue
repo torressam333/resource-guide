@@ -1,4 +1,5 @@
 <template>
+  <base-header title="Software Dev Resources"></base-header>
   <stored-resources
       :resources="storedResources"
   ></stored-resources>
@@ -6,9 +7,11 @@
 
 <script>
 import StoredResources from "./components/resources/StoredResources";
+import BaseHeader from "./components/layouts/BaseHeader";
 
 export default {
   components: {
+    BaseHeader,
     StoredResources,
   },
   data () {

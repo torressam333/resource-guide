@@ -5,7 +5,7 @@
         <h3>
           {{ title }}
         </h3>
-        <button>Delete</button>
+        <base-button>Delete</base-button>
       </header>
     <p>{{ description }}</p>
     <nav>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+
 export default {
   name: ['resource-item'],
   props: {
@@ -58,11 +59,11 @@ p {
 
 a {
   text-decoration: none;
-  color: #ce5c00;
+  color: #39737e;
 }
 
 a:hover,
 a:active {
-  color: #c89300;
+  color: #22474f;
 }
 </style>
