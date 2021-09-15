@@ -2,11 +2,11 @@
   <base-card>
     <base-button
         @click="setSelectedTab('stored-resources')"
-        mode="flat"
+        :mode="isStoredSelected"
     >Stored Resources</base-button>
     <base-button
         @click="setSelectedTab('add-resource')"
-        mode="flat"
+        :mode="isAddSelected"
     >Add Resource</base-button>
   </base-card>
   <!--keep alive caches our tabbed components
@@ -52,6 +52,14 @@ export default {
   methods: {
     setSelectedTab (tab) {
       this.selectedTab = tab;
+    }
+  },
+  computed: {
+    isStoredSelected () {
+      return this.selectedTab === 'stored-resources' ? 'active' : 'flat';
+    },
+    isAddSelected () {
+      return this.selectedTab === 'add-resource' ? 'active' : 'flat';
     }
   }
 }
