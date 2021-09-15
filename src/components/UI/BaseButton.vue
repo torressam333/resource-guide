@@ -14,9 +14,7 @@ export default {
       required: false
     },
     mode: {
-      type: {
-        String
-      }
+      type: String
     }
   }
 }
@@ -50,6 +48,8 @@ button:active {
 
 .flat:hover,
 .flat:active {
-  background-color: #edd2ff;
+  background-color: #39737e;
+  border: none;
+  color: #fff;
 }
 </style>

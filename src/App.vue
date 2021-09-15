@@ -1,36 +1,16 @@
 <template>
   <base-header title="Software Dev Resources"></base-header>
-  <stored-resources
-      :resources="storedResources"
-  ></stored-resources>
+  <root-resource></root-resource>
 </template>
 
 <script>
-import StoredResources from "./components/resources/StoredResources";
 import BaseHeader from "./components/layouts/BaseHeader";
+import RootResource from "./components/resources/RootResource";
 
 export default {
   components: {
     BaseHeader,
-    StoredResources,
-  },
-  data () {
-    return {
-      storedResources: [
-        {
-          id: 'vue-style-guide',
-          title: 'Vue Style Guide',
-          description: 'The official vue.js style guide',
-          link: 'https://vuejs.org/v2/style-guide/'
-        },
-        {
-          id: 'laravel-documentation',
-          title: 'Laravel Documentation',
-          description: 'The official Laravel Documentation',
-          link: 'https://laravel.com/docs/8.x'
-        }
-      ]
-    }
+    RootResource,
   }
 }
 </script>

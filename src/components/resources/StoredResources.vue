@@ -19,11 +19,7 @@ export default {
   components: {
     ResourceItem
   },
-  props: {
-    resources: {
-      type: Array
-    }
-  }
+  inject: ['resources']
 }
 </script>
 
