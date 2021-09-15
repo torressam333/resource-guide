@@ -24,10 +24,9 @@ export default {
 
 <style scoped>
 button {
-  background-color: #f6f5f5;
-  border: 1px solid #39647e;
-  border-radius: 20px;
-  color: #39647e;
+  background-color: transparent;
+  border: none;
+  color: indianred;
   cursor: pointer;
   font-family: inherit;
   font-weight: 700;
@@ -36,9 +35,11 @@ button {
 
 button:hover,
 button:active {
-  background-color: #39647e;
-  border-color: #fff;
-  color: #fff
+  background-color: #f6f5f5;
+  border: 1px solid indianred;
+  border-radius: 20px;
+  color: indianred;
+  padding: 0.25rem 1rem;
 }
 
 .flat {
