@@ -7,7 +7,7 @@
     <base-button
         @click="setSelectedTab('add-resource')"
         :mode="isAddSelected"
-    >Add Resource</base-button>
+    >Resource Form</base-button>
   </base-card>
   <!--keep alive caches our tabbed components
     See: https://vuejs.org/v2/guide/components-dynamic-async.html
