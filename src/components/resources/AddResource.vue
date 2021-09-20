@@ -1,18 +1,18 @@
 <template>
   <base-card>
   <!--Going into a slot-->
-    <form action="">
+    <form @submit.prevent="saveFormData">
       <div class="form-control">
         <label for="title">Title</label>
-        <input type="text" id="title" name="title" placeholder="resource title">
+        <input ref="titleInput" type="text" id="title" name="title" placeholder="resource title">
       </div>
       <div class="form-control">
-        <label for="description">Desription</label>
-        <textarea name="description" id="description" rows="3" aria-placeholder="description"></textarea>
+        <label for="description">Description</label>
+        <textarea ref="descriptionInput" name="description" id="description" rows="3" aria-placeholder="description"></textarea>
       </div>
       <div class="form-control">
         <label for="link">Link</label>
-        <input type="url" id="link" name="link" placeholder="e.g. https://google.com">
+        <input ref="linkInput" type="url" id="link" name="link" placeholder="e.g. https://google.com">
       </div>
       <div>
         <base-button type="submit" mode="active">
@@ -27,7 +27,23 @@
 import BaseCard from "../UI/BaseCard";
 import BaseButton from "../UI/BaseButton";
 export default {
-  components: {BaseButton, BaseCard}
+  components: {BaseButton, BaseCard},
+  methods: {
+    saveFormData () {
+      const inputTitle =  this.$refs.titleInput.value;
+      const inputDescription =  this.$refs.descriptionInput.value;
+      const inputLink =  this.$refs.descriptionInput.value;
+
+      //Ensure data gets added to resource list
+      this.addResource(inputTitle, inputDescription, inputLink)
+
+      //Clear form
+      this.$refs.titleInput.value = '';
+      this.$refs.descriptionInput.value = '';
+      this.$refs.inputLink.value = '';
+    }
+  },
+  inject: ['addResource']
 }
 </script>
 
