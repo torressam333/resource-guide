@@ -30,12 +30,18 @@ export default {
   components: {BaseButton, BaseCard},
   methods: {
     saveFormData () {
-      const inputTitle =  this.$refs.titleInput.value;
-      const inputDescription =  this.$refs.descriptionInput.value;
-      const inputLink =  this.$refs.descriptionInput.value;
+      const inputTitle = this.$refs.titleInput.value;
+      const inputDescription = this.$refs.descriptionInput.value;
+      const inputLink = this.$refs.linkInput.value;
+
+      if (inputTitle.trim() === '' || inputDescription.trim() === '' || inputLink.trim() === '') {
+        //Show custom dialog
+
+        return;
+      }
 
       //Ensure data gets added to resource list
-      this.addResource(inputTitle, inputDescription, inputLink)
+      this.addResource(inputTitle, inputDescription, inputLink);
 
       //Clear form
       this.$refs.titleInput.value = '';
