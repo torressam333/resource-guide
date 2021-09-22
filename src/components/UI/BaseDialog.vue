@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div @click="$emit('close')"></div>
   <dialog open>
     <header>
       <slot name="header">
@@ -10,13 +10,17 @@
       <slot name="body"></slot>
     </section>
     <menu>
-      <slot name="actions"></slot>
+      <slot name="actions">
+        <!--Fallback content-->
+        <base-button @click="$emit('close')">Close</base-button>
+      </slot>
     </menu>
   </dialog>
 </template>
 
 <script>
 export default {
+  emits: ['close'],
   props: {
     title: {
       type: String,
@@ -52,7 +56,7 @@ dialog {
 }
 
 header {
-  background-color: #3a0061;
+  background-color: #3071a4;
   color: white;
   width: 100%;
   padding: 1rem;
@@ -64,6 +68,10 @@ header h2 {
 
 section {
   padding: 1rem;
+}
+
+p {
+  color: green;
 }
 
 menu {

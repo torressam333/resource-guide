@@ -1,4 +1,16 @@
 <template>
+  <base-dialog
+      @close="closeDialog"
+      v-if="invalidInput"
+      title="Invalid Input">
+    <template #body>
+      <p>At least one input value is invalid.</p>
+      <p>Ensure all form fields are filled out.</p>
+    </template>
+    <template #actions>
+      <base-button @click="closeDialog" mode="active">Got it</base-button>
+    </template>
+  </base-dialog>
   <base-card>
   <!--Going into a slot-->
     <form @submit.prevent="saveFormData">
@@ -26,8 +38,15 @@
 <script>
 import BaseCard from "../UI/BaseCard";
 import BaseButton from "../UI/BaseButton";
+import BaseDialog from "../UI/BaseDialog";
+
 export default {
-  components: {BaseButton, BaseCard},
+  components: {BaseDialog, BaseButton, BaseCard},
+  data () {
+    return {
+      invalidInput: false
+    }
+  },
   methods: {
     saveFormData () {
       const inputTitle = this.$refs.titleInput.value;
@@ -36,6 +55,7 @@ export default {
 
       if (inputTitle.trim() === '' || inputDescription.trim() === '' || inputLink.trim() === '') {
         //Show custom dialog
+        this.invalidInput = true;
 
         return;
       }
@@ -47,6 +67,9 @@ export default {
       this.$refs.titleInput.value = '';
       this.$refs.descriptionInput.value = '';
       this.$refs.inputLink.value = '';
+    },
+    closeDialog () {
+      this.invalidInput = false;
     }
   },
   inject: ['addResource']
