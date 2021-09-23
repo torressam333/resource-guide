@@ -47,7 +47,8 @@ export default {
   provide () {
     return {
       resources: this.storedResources,
-      addResource: this.addResource
+      addResource: this.addResource,
+      deleteResource: this.deleteResource
     }
   },
   methods: {
@@ -67,6 +68,12 @@ export default {
 
       //Switch tab to view new resource
       this.selectedTab = 'stored-resources';
+    },
+    deleteResource (resId) {
+      const resIndex = this.storedResources.findIndex(res => res.id === resId);
+
+      //Manipulate the original array from memory
+      this.storedResources.splice(resIndex, 1);
     }
   },
   computed: {

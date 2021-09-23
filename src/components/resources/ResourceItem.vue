@@ -5,7 +5,7 @@
         <h3>
           {{ title }}
         </h3>
-        <base-button>Delete</base-button>
+        <base-button @click="deleteResource(resId)">Delete</base-button>
       </header>
     <p>{{ description }}</p>
     <nav>
@@ -19,6 +19,7 @@
 
 export default {
   name: ['resource-item'],
+  inject: ['deleteResource'],
   props: {
     description: {
       type: String,
@@ -27,6 +28,9 @@ export default {
     link: {
       type: String,
       required: true
+    },
+    resId: {
+      required: false
     },
     title: {
       type: String,
